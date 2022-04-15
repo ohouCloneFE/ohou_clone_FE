@@ -1,0 +1,17 @@
+.upbar {
+  width: 100vw;
+  height: 23px;
+}
+
+.roomtype {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.roomtypetag {
+  padding: 0px 5px;
+  border-right: 1px solid gray;
+  border-radius: 1.5px;
+  color: #757575;
+}

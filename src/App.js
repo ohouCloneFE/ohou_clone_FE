@@ -13,7 +13,7 @@ import PostWrite from "./pages/PostWrite"
 function App() {
   return (
     <React.Fragment>
-      <ConnectedRouter  history={history}>
+      <ConnectedRouter history={history}>
         <Route path="/" exact component={PostList} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={Signup} />
