@@ -7,13 +7,14 @@
   align-items: center;
   background-color: white;
   position: fixed;
-  padding: 25px 28%;
+  padding: 25px;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
   border-bottom: 1px solid rgb(201, 201, 201);
-  min-width: 600px;
+  margin: auto;
+  max-width: 950px;
 }
 
 .headerBtn {

@@ -1,4 +1,5 @@
 import './App.css';
+import styled from 'styled-components';
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
@@ -13,15 +14,25 @@ import PostWrite from "./pages/PostWrite"
 function App() {
   return (
     <React.Fragment>
-      <ConnectedRouter history={history}>
-        <Route path="/" exact component={PostList} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/detail" exact component={Detail} />
-        <Route path="/postWrite" exact component={PostWrite} />
-      </ConnectedRouter>
+      <ContentWrap>  
+        <ConnectedRouter  history={history}>
+          <Route path="/" exact component={PostList} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" exact component={Signup} />
+          <Route path="/detail" exact component={Detail} />
+          <Route path="/postWrite" exact component={PostWrite} />
+        </ConnectedRouter>
+      </ContentWrap>
     </React.Fragment>
   );
 }
+
+const ContentWrap = styled.div`
+  margin: 0 auto;
+  // padding: %;
+  max-width: 950px;
+  box-sizing: border-box;
+`
+
 
 export default App;
