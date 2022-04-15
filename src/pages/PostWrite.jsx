@@ -9,4 +9,3 @@ const Postwrite = () => {
 };
 
 export default Postwrite;
-
