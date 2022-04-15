@@ -14,16 +14,14 @@ import PostWrite from "./pages/PostWrite"
 function App() {
   return (
     <React.Fragment>
-      <ContentWrap>
-
-      
-      <ConnectedRouter  history={history}>
-        <Route path="/" exact component={PostList} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/signup" exact component={Signup} />
-        <Route path="/detail" exact component={Detail} />
-        <Route path="/postWrite" exact component={PostWrite} />
-      </ConnectedRouter>
+      <ContentWrap>  
+        <ConnectedRouter  history={history}>
+          <Route path="/" exact component={PostList} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/signup" exact component={Signup} />
+          <Route path="/detail" exact component={Detail} />
+          <Route path="/postWrite" exact component={PostWrite} />
+        </ConnectedRouter>
       </ContentWrap>
     </React.Fragment>
   );

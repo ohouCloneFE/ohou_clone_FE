@@ -10,12 +10,13 @@ const Postwrite = () => {
       <div style={{height : "80px"}}>
         <Header />
       </div>
+
+        
+
       <PostUpload></PostUpload>
     </div>
   );
 };
-
-
 
 
 
