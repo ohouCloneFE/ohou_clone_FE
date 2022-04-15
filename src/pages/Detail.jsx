@@ -51,7 +51,7 @@ const Detail = () => {
 
       <DetailDiv>
 
-          <DetailBtn src='https://img.maisonkorea.com/2020/03/msk_5e65a1179ab47.jpg' />
+          <DetailImg src='https://img.maisonkorea.com/2020/03/msk_5e65a1179ab47.jpg' />
 
       </DetailDiv>
 
@@ -84,6 +84,25 @@ const Detail = () => {
 
       </DetailDiv>
 
+      <div style={{padding : "16px",  margin : "10px 0px", height : "45px", paddingBottom : "40px"}}>
+        <img 
+          src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW3zSX4demC8M8F1whHndKmYZc8lkq9EEnzA&usqp=CAU'
+          style={{height : "40px", width : "40px", borderRadius : "50%", float : "left"}}>
+        </img>
+
+        <div style={{float : "left"}}>
+            <p style={{lineHeight : "20px", margin : "0px 10px 0px 20px", fontSize: "20px", width : "100%"}}>React</p>
+            <p style={{lineHeight : "20px", margin : "0px 10px 0px 20px", fontSize: "12px", width : "100%"}}>2시간 전</p>
+        </div>
+
+        <div style={{lineHeight : "20px"}}>
+          정말 이쁜집이군요!!!
+        </div>
+
+      </div>
+
+      <DetailDiv style={{height : "150px"}}></DetailDiv>
+
     </div>
 
   </React.Fragment>
@@ -102,7 +121,7 @@ const DetailDiv = styled.div`
   flex-direction: row;
   max-width: 100%; 
 `
-const DetailBtn = styled.img`
+const DetailImg = styled.img`
   max-width: 100%; 
   height: auto;
   object-fit: cover;

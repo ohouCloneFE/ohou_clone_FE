@@ -30,7 +30,7 @@ function App() {
 const ContentWrap = styled.div`
   margin: 0 auto;
   // padding: %;
-  max-width: 950px;
+  max-width: 1100px;
   box-sizing: border-box;
 `
 

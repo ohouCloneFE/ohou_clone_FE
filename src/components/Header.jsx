@@ -22,10 +22,13 @@ const Header = () => {
           </svg>
         </div>
       </Link>
+      <Link to="/PostWrite">
+        <button className='headerBtn'>
+          글쓰기
+        </button>
+      </Link>
 
-      <button className='headerBtn'>
-        글쓰기
-      </button>
+      
 
     </div>
   );
