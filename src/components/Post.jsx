@@ -8,7 +8,7 @@ const Post = (props) => {
     return (
         <>
    
-            <div style={{width : "300px"}}>
+            <div style={{width : "260px"}}>
                 <div style={{width : "100%", maxWidth:"300px", justifyContent:"center", alignItem:"center", padding:"3px"}}>
                     <Grid is_flex width="auto">
                         <div style={{display:"flex",textAlign:"start", justifyContent:"center"}}>

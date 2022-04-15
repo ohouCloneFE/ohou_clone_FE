@@ -73,21 +73,24 @@ const PostList = () => {
         </Select>
         
       </div>
-      <PostListWrap>
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-       <Post />
-      </PostListWrap>
+      <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"5%"}}>
+        <PostListWrap>
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        <Post />
+        </PostListWrap>
+      </div>
+      
         
 
     </div>
@@ -99,12 +102,12 @@ const PostList = () => {
 const PostListWrap = styled.div`
   display: grid;
   position : relative;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   padding-top : 50px
   width:300px;
   // grid-gap: 20px;
-  // gap: 20px;
-  // margin-top : 50px;
+  gap: 20px;
+  // margin : 50px;
   // padding : 5px;
 `
 const Select = styled.select`
