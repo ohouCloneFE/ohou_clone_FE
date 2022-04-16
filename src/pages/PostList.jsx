@@ -5,10 +5,15 @@ import styled from 'styled-components';
 import Header from "../components/Header";
 import Post from '../components/Post';
 
-const PostList = () => {
+import Data from '../components/data'
+
+const PostList = (props) => {
  
   const [filter, setFilter] = useState(["필터","원룸&오피스텔","아파트","빌라&연립"]);
- 
+  
+  const [postItem, setPostItem] = useState(Data);
+
+
   return (
     <div>
       <div style={{height : "80px"}}>
@@ -75,19 +80,16 @@ const PostList = () => {
       </div>
       <div style={{display:"flex", justifyContent:"center", alignItems:"center", padding:"5%"}}>
         <PostListWrap>
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+            {
+              postItem.map((e, idx)=>{
+                console.log("포스트",postItem)
+                return(
+                  <Post key={idx} e={e}/>
+                )
+              })
+            }
+                
+    
         </PostListWrap>
       </div>
       
