@@ -80,7 +80,7 @@ const Singup = (props) => {
             </Grid>
             <Grid margin="0px 0px 40px 0px" padding="16px">
               <Button bg = "#755139" color = "#F2EDD7" bold = "900" text="홈으로 가기" onClick={() => {
-                history.push('/');
+                history.push('/login');
               }}/>
             </Grid>
           </Grid>
