@@ -10,6 +10,19 @@ const PostUpload = (props) => {
     
     const [preview, setPreview] = useState();
     
+    const encodeFileToBase64 = (fileBlob) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(fileBlob);
+        return new Promise((resolve) => {
+            reader.onload=()=>{
+                console.log(reader.result)
+                setPreview(reader.result);
+                resolve();
+            }
+        })
+        
+    }
+
     return (
         <div>
             <div>
@@ -59,6 +72,9 @@ const PostUpload = (props) => {
                     shape="rectangle"
                     src={preview ? preview : photo}
                     type="file"
+                    onChange={(e) => {
+                        encodeFileToBase64(e.target.files[0])
+                    }}
                     />
                 </div>
                 <div style={{marginLeft : "20px"}}>
@@ -89,20 +105,37 @@ const PostUpload = (props) => {
 
 
 
-const FileUpload = styled.button`
+
+const FileUpload = styled.input`
 
 
   position: relative;
   overflow: hidden;
-  width: 500px;
+  width: 100%;
   height : 300px;
-  background-image: url("${(props) => props.src}");
+  min-width:500px;
+//   min-height:300px;
+  max-width:1000px;
+  max-height:1000px;
+  background-image : url("${(props) => props.src}");
   background-size: cover;
-  border-radius : 4spx;
+  backgound-image : z-index 1;
+  border-radius : 4px;
   &:hover{
       opacity:0.65;
   }
   border : 1px dashed #d3d3d3;
+  input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
 `;
 
 const Btn = styled.button`

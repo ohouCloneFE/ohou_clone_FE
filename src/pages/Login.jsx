@@ -57,7 +57,7 @@ const Login = (props) => {
                 bg = "white"
                 value={id}
                 placeholder="아이디" 
-                _onChange={(e) => {
+                onChange={(e) => {
                   setId(e.target.value);
                   // console.log(e.target.value);
                 }} 
@@ -66,7 +66,7 @@ const Login = (props) => {
                 type="password"
                 value={pwd}
                 placeholder="비밀번호"
-                _onChange={(e) => {
+                onChange={(e) => {
                   setPwd(e.target.value);
                   // console.log(e.target.value);
                 }} 
