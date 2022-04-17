@@ -5,7 +5,7 @@ import { Grid , Text} from "../elements/Index"
 
 const Input = (props) => {
   // 인풋 컴포넌트는 props로 아래의 것들을 받아온다.
-  const { label, placeholder, _onChange, type, multiLine, border, height, margin, width, bg } = props;
+  const { label, placeholder, _onChange, type, multiLine, border, height, margin, width, bg, borderRadius } = props;
 
   const styles = {
     width: width,
@@ -13,6 +13,7 @@ const Input = (props) => {
     height: height,
     margin : margin,
     bg : bg,
+    borderRadius : borderRadius,
   }
   
   if(multiLine){
@@ -43,7 +44,9 @@ Input.defaultProps = {
   label: false,
   placeholder: "텍스트를 입력해주세요.",
   type: "text",
-  border : "1px solid #212121",
+  border : "1px solid gray",
+  bg : "white",
+  borderRadius : "0px",
   height : "100%",
   width : "100%",
   margin : false,
@@ -60,7 +63,7 @@ const ElTextarea = styled.textarea`
 
 
 const ElInput = styled.input`
-  border: 1px solid #212121;
+  border: 1px solid gray;
   width: 100%;
   padding: 12px 4px;
   box-sizing: border-box;
@@ -68,6 +71,7 @@ const ElInput = styled.input`
   border : ${(props) => props.border};
   height : ${(props) => props.height};
   margin : ${(props) => props.margin};
+  radius-radius : ${(props) => props.borderRadius};
 `;
 
 export default Input;
