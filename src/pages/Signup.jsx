@@ -12,14 +12,15 @@ const Singup = (props) => {
   const [id, setId] = React.useState("");
   const [pwd, setPwd] = React.useState("");
   const [pwdCheck, setPwdCheck] = React.useState("");
-  const [username, setUsername] = React.useState("");
+  const [nickname, setNickname] = React.useState("");
 
   const signup = () => {
-    if(id === "" || pwd === "" || pwdCheck === "" || username === "") {
+    if(id === "" || pwd === "" || pwdCheck === "" || nickname === "") {
       window.alert("아이디와 비밀번호를 모두 입력해주세요!");
       return;
     }
-    dispatch(userActions.signupDB(id, pwd, pwdCheck, username));
+    dispatch(userActions.signupDB(id, pwd, pwdCheck, nickname));
+
   }
 
   return (
@@ -126,11 +127,13 @@ const Singup = (props) => {
               label="닉네임"
               placeholder="별명 (2~10자)"  
               onChange={(e) => {
-                setUsername(e.target.value);
+
+                setNickname(e.target.value);
+
               }} 
             ></Inputst>
-            {userNameCheck(username) ? (<p style={{fontSize: "12px", color: "green"}}>형식에 맞는 닉네임입니다.</p>) : null}
-            {!userNameCheck(username) ? (<p style={{fontSize: "12px", color: "red"}}> 2~ 15자 한글, 영문, 숫자 가능, 특수문자 -_ 가능</p>) : null}
+            {userNameCheck(nickname) ? (<p style={{fontSize: "12px", color: "green"}}>형식에 맞는 닉네임입니다.</p>) : null}
+            {!userNameCheck(nickname) ? (<p style={{fontSize: "12px", color: "red"}}> 2~ 15자 한글, 영문, 숫자 가능, 특수문자 -_ 가능</p>) : null}
           </Grid>
           
           <Grid margin="20px 0px 0px 0px">
