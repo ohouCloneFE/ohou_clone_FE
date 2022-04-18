@@ -60,9 +60,9 @@ const loadTokenFB = () => {
 const loginDB = (userId, userPw) => {
   return function (dispatch, getState, {history}) {
     axios
-      .post("http://3.38.179.73/user/login", {
-        userId: userId,
-        userPw: userPw,
+      .post("http://13.209.83.26/user/login", {
+        username: userId,
+        passwordCheck: userPw,
       })
       .then(response => {
         console.log(response);
@@ -84,13 +84,15 @@ const loginDB = (userId, userPw) => {
 }
 
 // 회원가입 액션
-const signupDB = (userId, userPw, pwCheck) => {
+const signupDB = (userId, userPw, pwCheck, nickname) => {
+  console.log(userId, userPw, pwCheck, nickname)
   return function (dispatch, getState, {history}) {
     axios
-    .post("http://3.38.179.73/user/join", {
-      userId: userId,
-      userPw: userPw,
-      pwCheck: pwCheck,
+    .post("http://13.209.83.26/user/signup", {
+      username: userId,
+      password: userPw,
+      passwordCheck: pwCheck,
+      nickname: nickname,
     })
     .then(response => {
       console.log(response);
