@@ -10,6 +10,7 @@ import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import PostList from "./pages/PostList";
 import PostWrite from "./pages/PostWrite"
+import Postedit from './pages/PostEdit';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/detail" exact component={Detail} />
           <Route path="/postWrite" exact component={PostWrite} />
+          <Route path="/postedit/:id" exact component={Postedit} />
         </ConnectedRouter>
       </ContentWrap>
     </React.Fragment>

@@ -15,6 +15,8 @@ const Post = (props) => {
     // console.log("nick",props[0].nickname)
     console.log({post_list})
     
+    const [user, setUser] = useState("test3")
+
     return (
         <>  
 
@@ -23,8 +25,19 @@ const Post = (props) => {
                     <Grid is_flex width="auto">
                         <div style={{display:"flex",textAlign:"start", justifyContent:"center"}}>
                             <Image shape="circle" src={props.e.profile} />
-                            {console.log("이거 안찍히네",props.e.profile)}
-                            <Text bold size='17px' padding="7px">{props.e.nickname}</Text>
+                            <div>
+                                <Text bold size='17px' padding="7px">
+                                    {props.e.nickname}
+                                    {
+                                        (user == props.e.nickname)
+                                        ? <span><Btn style={{backgroundColor:"transparent", border:"none" }} onClick={()=>{history.replace("/postedit/"+props.e.id)}}> · 수정</Btn>
+                                          <Btn style={{backgroundColor:"transparent", border:"none"}}>삭제</Btn></span>
+                                          :null
+                                    }                                 
+                                </Text>
+                            </div>
+                            
+
                         </div>             
                     </Grid>
                     <Grid width="200px">
@@ -79,5 +92,14 @@ const PostImg = styled.div`
     // }
 `;
 
+const Btn = styled.button`
+    background-color : transparent;
+    border : none;
+    font-weight : bold;
+    &:hover{
+        color : #35c5f0;
+        font-weight : bold;
+    }
+`
 
 export default Post;
