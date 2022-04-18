@@ -60,9 +60,9 @@ const loadTokenFB = () => {
 const loginDB = (userId, userPw) => {
   return function (dispatch, getState, {history}) {
     axios
-      .post("http://3.38.179.73/user/login", {
-        userId: userId,
-        userPw: userPw,
+      .post("http://13.209.83.26/user/login", {
+        username: userId,
+        password: userPw,
       })
       .then(response => {
         console.log(response);
@@ -74,7 +74,7 @@ const loginDB = (userId, userPw) => {
         );
         setCookie("Authorization", response.headers.authorization.split(" ")[1]);
         setCookie("userId", userId);
-        history.replace("/todoList");
+        history.replace("/");
       })
       .catch(error => {
         window.alert("아이디 또는 비밀번호를 확인해주세요.")
@@ -84,13 +84,14 @@ const loginDB = (userId, userPw) => {
 }
 
 // 회원가입 액션
-const signupDB = (userId, userPw, pwCheck) => {
+const signupDB = (userId, userPw, pwCheck, nickname) => {
   return function (dispatch, getState, {history}) {
     axios
-    .post("http://3.38.179.73/user/join", {
-      userId: userId,
-      userPw: userPw,
-      pwCheck: pwCheck,
+    .post("http://13.209.83.26/user/signup", {
+      username: userId,
+      password: userPw,
+      passwordCheck: pwCheck,
+      nickname: nickname,
     })
     .then(response => {
       console.log(response);

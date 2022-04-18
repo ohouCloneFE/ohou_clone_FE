@@ -30,15 +30,9 @@ const Postedit = () => {
           수정하기
         </button>
       </Link>
-
-      
-
     </div>
-      </div>
-
-        
-
-      <PostUpload></PostUpload>
+    </div>
+        <PostUpload></PostUpload>
     </div>
   );
 };

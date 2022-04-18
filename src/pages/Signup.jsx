@@ -12,13 +12,14 @@ const Singup = (props) => {
   const [id, setId] = React.useState("");
   const [pwd, setPwd] = React.useState("");
   const [pwdCheck, setPwdCheck] = React.useState("");
+  const [nickname, setNickname] = React.useState("");
 
   const signup = () => {
     if(id === "" || pwd === "" || pwdCheck === "") {
       window.alert("아이디와 비밀번호를 모두 입력해주세요!");
       return;
     }
-    dispatch(userActions.signupDB(id, pwd, pwdCheck));
+    dispatch(userActions.signupDB(id, pwd, pwdCheck, nickname));
   }
 
   return (
@@ -125,7 +126,7 @@ const Singup = (props) => {
               label="닉네임"
               placeholder="별명 (2~15자)"  
               onChange={(e) => {
-
+                setNickname(e.target.value);
               }} 
             ></Inputst>
           </Grid>
