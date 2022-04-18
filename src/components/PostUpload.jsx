@@ -65,10 +65,12 @@ const PostUpload = (props) => {
                     <option value="한국&아시아">한국&아시아</option>
                     <option value="유니크">유니크</option>
                 </select>
-            </div>      
-            <Grid is_flex padding='0%'>           
+            </div>
+                
+            <Grid is_flex padding='0%'>
                 <div style={{marginTop:"3%", width:"500px", height:"300px"}}>
                     <FileUpload
+                    id="file"
                     shape="rectangle"
                     src={preview ? preview : photo}
                     type="file"
@@ -80,20 +82,20 @@ const PostUpload = (props) => {
                 <div style={{marginLeft : "20px"}}>
                     <select className = "bigSelectBox" name='zone'>
                         <option selected = "selected" disabled="disabled">공간 (필수)</option>
-                        <option value="모던">원룸</option>
-                        <option value="모던">거실</option>
-                        <option value="모던">침실</option>
-                        <option value="모던">주방</option>
-                        <option value="모던">욕실</option>
-                        <option value="모던">아이방</option>
-                        <option value="모던">드레스룸</option>
-                        <option value="모던">서재&작업실</option>
-                        <option value="모던">베란다</option>
-                        <option value="모던">사무공간</option>
-                        <option value="모던">상업공간</option>
-                        <option value="모던">가구&소품</option>
-                        <option value="모던">현관</option>
-                        <option value="모던">외관&기타</option>
+                        <option value="원룸">원룸</option>
+                        <option value="거실">거실</option>
+                        <option value="침실">침실</option>
+                        <option value="주방">주방</option>
+                        <option value="욕실">욕실</option>
+                        <option value="아이방">아이방</option>
+                        <option value="드레스룸">드레스룸</option>
+                        <option value="서재&작업실">서재&작업실</option>
+                        <option value="베란다">베란다</option>
+                        <option value="사무공간">사무공간</option>
+                        <option value="상업공간">상업공간</option>
+                        <option value="가구&소품">가구&소품</option>
+                        <option value="현관">현관</option>
+                        <option value="외관&기타">외관&기타</option>
 
                     </select>
                     <TextBox>hi</TextBox>   
@@ -121,6 +123,15 @@ const FileUpload = styled.input`
   background-size: cover;
   backgound-image : z-index 1;
   border-radius : 4px;
+  cursor: pointer;
+  vertical-align: middle;
+  color : transparent;
+  &::file-selector-button { 
+      display: none;
+    }
+
+
+  
   &:hover{
       opacity:0.65;
   }
@@ -130,9 +141,7 @@ const FileUpload = styled.input`
     width: 0;
     height: 0;
     padding: 0;
-    margin: -1px;
     overflow: hidden;
-    clip: rect(0, 0, 0, 0);
     border: 0;
   }
 

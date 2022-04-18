@@ -85,6 +85,7 @@ const loginDB = (userId, userPw) => {
 
 // 회원가입 액션
 const signupDB = (userId, userPw, pwCheck, nickname) => {
+  console.log(userId, userPw, pwCheck, nickname)
   return function (dispatch, getState, {history}) {
     axios
     .post("http://13.209.83.26/user/signup", {

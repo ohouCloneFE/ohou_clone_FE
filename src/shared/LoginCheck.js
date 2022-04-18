@@ -17,3 +17,9 @@ export const passwordCheck = (pwd) => {
 // ^ => 시작
 // (?=.*\d) => 0~9까지의 숫자 표현
 // (?=.*[a-zA-Z]) => 알파벳
+
+export const userNameCheck = (username) => {
+  let _reguser = /^[가-힣a-zA-Z0-9-_.]{2,15}$/;
+
+  return _reguser.test(username);
+}

@@ -4,7 +4,7 @@ import {Grid, Text, Input, Button} from "../elements/Index";
 import { history } from "../redux/configureStore";
 import { useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
-import { idCheck, passwordCheck } from "../shared/LoginCheck";
+import { idCheck, passwordCheck, userNameCheck } from "../shared/LoginCheck";
 
 const Singup = (props) => {
   const dispatch = useDispatch();
@@ -15,11 +15,12 @@ const Singup = (props) => {
   const [nickname, setNickname] = React.useState("");
 
   const signup = () => {
-    if(id === "" || pwd === "" || pwdCheck === "") {
+    if(id === "" || pwd === "" || pwdCheck === "" || nickname === "") {
       window.alert("아이디와 비밀번호를 모두 입력해주세요!");
       return;
     }
     dispatch(userActions.signupDB(id, pwd, pwdCheck, nickname));
+
   }
 
   return (
@@ -124,11 +125,15 @@ const Singup = (props) => {
             <Inputst
               type="text"
               label="닉네임"
-              placeholder="별명 (2~15자)"  
+              placeholder="별명 (2~10자)"  
               onChange={(e) => {
+
                 setNickname(e.target.value);
+
               }} 
             ></Inputst>
+            {userNameCheck(nickname) ? (<p style={{fontSize: "12px", color: "green"}}>형식에 맞는 닉네임입니다.</p>) : null}
+            {!userNameCheck(nickname) ? (<p style={{fontSize: "12px", color: "red"}}> 2~ 15자 한글, 영문, 숫자 가능, 특수문자 -_ 가능</p>) : null}
           </Grid>
           
           <Grid margin="20px 0px 0px 0px">
@@ -142,7 +147,7 @@ const Singup = (props) => {
                   bold = "900"
                   radius = "5px"
                   onClick={signup}
-                />   
+                />
             </Grid>
             <Grid width = "360px" margin = "auto" padding="8px">
               <p style={{padding : "0px 62px", width: "360px", display:"flex"}}>
