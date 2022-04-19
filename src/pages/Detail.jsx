@@ -5,8 +5,15 @@ import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import "./Detail.css"
 import Input from '../elements/Input';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { detailPostLoadFB } from '../redux/modules/post';
+
 
 const Detail = () => {
+
+  const dispatch = useDispatch();
 
   const [comment, setcomment] = useState([
       {
@@ -31,7 +38,25 @@ const Detail = () => {
     
     const [comments, setComments] = useState("");     
     
-    console.log(comments)
+    // console.log(comments)
+
+    const params = useParams();
+
+    const id = params.id;
+
+    const posts = useSelector(state => state.post.list);
+
+    console.log(posts.body)
+
+    const detailPosts = posts.body
+
+    useEffect(() => {
+      dispatch(detailPostLoadFB(id));
+    }, []);
+
+    // const post = posts.find((p) => p.id === id);
+    // console.log(post)
+
   return (
   <React.Fragment>
     <div style={{width : "100%", height : "100vh", backgroundColor : "white"}}>
@@ -46,7 +71,7 @@ const Detail = () => {
           </img>
 
           <div >
-            <p style={{lineHeight : "30px", margin : "0px 0px 0px 60px", fontSize: "20px"}}>React</p>
+            <p style={{lineHeight : "30px", margin : "0px 0px 0px 60px", fontSize: "20px"}}>{detailPosts?.username}</p>
             <p style={{lineHeight : "20px", margin : "0px 0px 0px 60px", fontSize: "12px"}}>2일 전</p>
           </div>
 
@@ -76,13 +101,12 @@ const Detail = () => {
 
       <DetailDiv>
 
-          <DetailImg src='https://img.maisonkorea.com/2020/03/msk_5e65a1179ab47.jpg' />
+          <DetailImg src={detailPosts?.roomurl} />
 
       </DetailDiv>
 
       <DetailDiv>
-        <p style={{margin : "30px 5px"}}>정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 
-        정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! 정말 깔끔한 방이에요! </p>
+        <p style={{margin : "30px 5px"}}>{detailPosts?.des}</p>
       </DetailDiv> 
       
       <DetailDiv style={{borderBottom: "1px solid rgb(230, 230, 230)"}}>

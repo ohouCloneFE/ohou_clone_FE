@@ -12,6 +12,8 @@ import { history } from "../redux/configureStore";
 
 import Header from './Header';
 
+import { addPostDB } from '../redux/modules/post';
+
 
 const PostUpload = (props) => {
     
@@ -88,6 +90,10 @@ const PostUpload = (props) => {
     //     })
         
     // }
+
+    const [dec, setDec] = useState();
+
+    console.log(preview, dec)
 
     return (
         <div>

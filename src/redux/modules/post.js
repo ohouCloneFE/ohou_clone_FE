@@ -4,6 +4,8 @@ import axios from "axios";
 import { getCookie } from "../../shared/Cookie";
 
 // action
+const SET_DETAILPOST = "SET_DETAILPOST";
+// detail 페이지 액션
 const GET_POST = "GET_POST";
 const ADD_POST = 'ADD_POST';
 const DELETE_POST = 'DELETE_POST';
@@ -11,6 +13,8 @@ const SET_PREVIEW = "SET_PREVIEW";
 const UPLOAD_IMG = "UPLOAD_IMG";
 
 // action creators
+const setDetailPost = createAction(SET_DETAILPOST, (post) => ({post}));
+// detail 페이지 액션크리에이터
 const getPost = createAction(GET_POST, (post_list) => ({ post_list }));
 const addPost = createAction(ADD_POST, (post) => ({ post }));
 const deletePost = createAction(DELETE_POST, (post) => ({post}));
@@ -25,7 +29,26 @@ const initialState = {
 
 
 // middleware
-const getPostDB = () => {
+
+
+// detail 페이지 포스트 불러오기 미들웨어
+export const detailPostLoadFB = (postId) => {
+  return async function(dispatch, getState, {history}) {
+    const myToken = getCookie("Authorization",
+    )
+    await axios.get(`http://13.209.83.26/posts/${postId}`
+    ,{headers : {"Authorization" : `${myToken}`}})
+    .then((res) => {
+      console.log(res.data)
+      dispatch(setDetailPost(res.data));
+    })
+    .catch((err)=> {
+      console.log(err);
+    })
+  }
+}
+
+export const getPostDB = () => {
     return async function (dispatch, getState, { history }) {
       const myToken = getCookie("Authorization",)
     axios.get('http://13.209.83.26/'
@@ -159,6 +182,11 @@ export const deletePostDB = (post_id) => {
 // reducer
 export default handleActions(
     {
+      [SET_DETAILPOST]: (state, action) =>
+      produce(state, (draft) => {
+        console.log(state, action)
+      draft.list = action.payload.post;
+      }),
       [GET_POST]: (state, action) =>
         produce(state, (draft) => {
           // console.log(state);

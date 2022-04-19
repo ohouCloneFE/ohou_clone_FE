@@ -5,8 +5,10 @@ import { history } from "../redux/configureStore";
 import { actionCreators } from '../redux/modules/post';
 import { useDispatch, useSelector } from "react-redux";
 import { getCookie } from '../shared/Cookie';
+import { useEffect } from "react";
 
 import Data from "./data"
+import { postLoadFB } from '../redux/modules/post';
 
 
 const Post = (props) => {
@@ -23,7 +25,7 @@ const Post = (props) => {
     // console.log({post_list})
     
     const user = getCookie("userId")
-    console.log("유저",user)
+    // console.log("유저",user)
     // const [user, setUser] = useState("test3")
     const [is_like, setIsLike] = useState(true)
     const [is_scrap, setIsScrap] = useState(false)
@@ -31,6 +33,16 @@ const Post = (props) => {
     // React.useEffect(() => {
     //     dispatch(actionCreators.getPostDB());
     //   }, []);
+    
+    //     useEffect(() => {
+    //     console.log(postLoadFB())
+    //     dispatch(postLoadFB());
+    //   }, [dispatch]);
+
+    //   const posts = useSelector(state => state.post.list);
+
+    //   console.log(posts)
+
 
     return (
         <>  
