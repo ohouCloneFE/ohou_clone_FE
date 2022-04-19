@@ -2,24 +2,33 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Grid, Input, Button, Image, Text } from "../elements/Index";
 import { history } from "../redux/configureStore";
+import { actionCreators } from '../redux/modules/post';
+import { useDispatch, useSelector } from "react-redux";
+import { getCookie } from '../shared/Cookie';
 
 import Data from "./data"
 
 
 const Post = (props) => {
     
+    const dispatch = useDispatch();
+    // const post_list = useSelector((state) => state.post.list);
     const post_list = props
     // const { post_list } = props
-    console.log("포스트아이템props",props)
+    // console.log("포스트아이템props",props)
     // const [postItem, setPostItem] = useState(Data);
     // console.log("nick",props[0].nickname)
-    console.log({post_list})
+    // console.log({post_list})
     
-    const [user, setUser] = useState("test3")
+    const user = getCookie("userId")
+    console.log("유저",user)
+    // const [user, setUser] = useState("test3")
     const [is_like, setIsLike] = useState(true)
     const [is_scrap, setIsScrap] = useState(false)
 
-    
+    // React.useEffect(() => {
+    //     dispatch(actionCreators.getPostDB());
+    //   }, []);
 
     return (
         <>  
