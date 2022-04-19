@@ -14,8 +14,10 @@ import { postLoadFB } from '../redux/modules/post';
 const Post = (props) => {
     
     const dispatch = useDispatch();
-    // const post_list = useSelector((state) => state.post.list);
-    const post_list = props
+    const post_list = useSelector((state) => state.post.list);
+    // const post_list = props
+    console.log("겟성공?",post_list)
+
     // const { post_list } = props
     // console.log("포스트아이템props",props)
     // const [postItem, setPostItem] = useState(Data);
