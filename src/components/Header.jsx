@@ -2,8 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import "./Header.css"
+import { getCookie } from '../shared/Cookie';
+import { actionCreators as userActions } from "../redux/modules/user";
+import { history } from "../redux/configureStore";
+import { useDispatch } from "react-redux";
+
 
 const Header = () => {
+
+  const dispatch = useDispatch()
+  const is_login = getCookie("is_login")
+
   return (
     <div className='header'>
       {/* 오늘의집 글자 아이콘 */}
@@ -22,11 +31,40 @@ const Header = () => {
           </svg>
         </div>
       </Link>
+      <div style={{display:"flex"}}>
+      <div style={{display:"flex",justifyContent:"flex-end", textAlign:"end", marginRight:"10px"}}>
+        {!is_login
+        ? <span>
+            <button style={{backgroundColor:"transparent", border:"none"}}
+            onClick = {() => {
+              history.push('/login');
+            }}
+            >로그인</button>
+            <button style={{backgroundColor:"transparent", border:"none"}}
+            onClick = {() => {
+              history.push('/signup');
+            }}
+            >회원가입</button>
+          </span>
+        :
+        <button style={{backgroundColor:"transparent", border:"none"}} 
+        onClick = {() => {
+          window.alert("로그아웃");
+          dispatch(userActions.logOut());
+          history.push('/');
+        }}
+        >로그아웃
+        </button>
+
+        }
+      </div>
       <Link to="/PostWrite">
         <button className='headerBtn'>
           글쓰기
         </button>
       </Link>
+      </div>
+      
 
       
 

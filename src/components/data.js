@@ -70,6 +70,13 @@ export default [
       nickname : "test4",
       desc : "조명을 설치했어요",
     },
+    {
+      id : "10",
+      profile : "https://t1.daumcdn.net/cfile/tistory/244BFB405474100E20",
+      roomImage : "https://usercontents-d.styleshare.io/images/43042651/700x432",
+      nickname : "테스트2",
+      desc : "조명을 설치했어요",
+    },
     
   
   ] 
