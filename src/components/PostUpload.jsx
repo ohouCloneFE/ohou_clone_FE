@@ -5,10 +5,19 @@ import "./Header.css"
 
 import { Grid, Input, Button, Image, Text } from "../elements/Index";
 
+import { useDispatch } from 'react-redux';
+import { addPostDB } from '../redux/modules/post';
+
 
 const PostUpload = (props) => {
+
+    const dispatch = useDispatch();
     
     const [preview, setPreview] = useState();
+
+    const roomurl = preview
+
+
     
     const encodeFileToBase64 = (fileBlob) => {
         const reader = new FileReader();
@@ -22,6 +31,15 @@ const PostUpload = (props) => {
         })
         
     }
+
+    const [dec, setDec] = useState();
+
+    console.log(preview, dec)
+
+    const postAdd = () => {
+        dispatch(addPostDB(roomurl,dec));
+        // window.location.reload()
+      }
 
     return (
         <div>
@@ -98,7 +116,8 @@ const PostUpload = (props) => {
                         <option value="외관&기타">외관&기타</option>
 
                     </select>
-                    <TextBox>hi</TextBox>   
+                    <TextBox onChange={(e) => {setDec(e.target.value)}}></TextBox>
+                    <button onClick={postAdd}>올리기</button>
                 </div>
             </Grid>
         </div>

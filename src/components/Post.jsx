@@ -5,8 +5,10 @@ import { history } from "../redux/configureStore";
 import { actionCreators } from '../redux/modules/post';
 import { useDispatch, useSelector } from "react-redux";
 import { getCookie } from '../shared/Cookie';
+import { useEffect } from "react";
 
 import Data from "./data"
+import { postLoadFB } from '../redux/modules/post';
 
 
 const Post = (props) => {
@@ -21,7 +23,7 @@ const Post = (props) => {
     // console.log({post_list})
     
     const user = getCookie("userId")
-    console.log("유저",user)
+    // console.log("유저",user)
     // const [user, setUser] = useState("test3")
     const [is_like, setIsLike] = useState(true)
     const [is_scrap, setIsScrap] = useState(false)
@@ -29,6 +31,16 @@ const Post = (props) => {
     // React.useEffect(() => {
     //     dispatch(actionCreators.getPostDB());
     //   }, []);
+    
+    //     useEffect(() => {
+    //     console.log(postLoadFB())
+    //     dispatch(postLoadFB());
+    //   }, [dispatch]);
+
+    //   const posts = useSelector(state => state.post.list);
+
+    //   console.log(posts)
+
 
     return (
         <>  
@@ -40,9 +52,9 @@ const Post = (props) => {
                             <Image shape="circle" src={props.e.profile} />
                             <div>
                                 <Text bold size='17px' padding="7px">
-                                    {props.e.nickname}
+                                    {props.e.username}
                                     {
-                                        (user == props.e.nickname)
+                                        (user == props.e.username)
                                         ? <span><Btn style={{backgroundColor:"transparent", border:"none" }} onClick={()=>{history.replace("/postedit/"+props.e.id)}}> · 수정</Btn>
                                           <Btn style={{backgroundColor:"transparent", border:"none"}}>삭제</Btn></span>
                                           :null
@@ -59,7 +71,7 @@ const Post = (props) => {
                     </Grid>     
                     <Grid>
                         <div onClick={()=>{history.replace("/detail/"+props.e.id)}} >
-                            <PostImg shape="rectangle" src={props.e.roomImage} />
+                            <PostImg shape="rectangle" src={props.e.roomurl} />
                         </div>
                         
                     </Grid>
@@ -92,7 +104,7 @@ const Post = (props) => {
                         </button>
                     </div>
                     <Grid padding="16px 0 0 0">
-                        <Text size='15px' bold>{props.e.desc}</Text>              
+                        <Text size='15px' bold>{props.e.des}</Text>              
                     </Grid>
                 </div>
             </div>           
