@@ -12,8 +12,10 @@ import Data from "./data"
 const Post = (props) => {
     
     const dispatch = useDispatch();
-    // const post_list = useSelector((state) => state.post.list);
-    const post_list = props
+    const post_list = useSelector((state) => state.post.list);
+    // const post_list = props
+    console.log("겟성공?",post_list)
+
     // const { post_list } = props
     // console.log("포스트아이템props",props)
     // const [postItem, setPostItem] = useState(Data);
@@ -40,9 +42,9 @@ const Post = (props) => {
                             <Image shape="circle" src={props.e.profile} />
                             <div>
                                 <Text bold size='17px' padding="7px">
-                                    {props.e.nickname}
+                                    {props.e.username}
                                     {
-                                        (user == props.e.nickname)
+                                        (user == props.e.username)
                                         ? <span><Btn style={{backgroundColor:"transparent", border:"none" }} onClick={()=>{history.replace("/postedit/"+props.e.id)}}> · 수정</Btn>
                                           <Btn style={{backgroundColor:"transparent", border:"none"}}>삭제</Btn></span>
                                           :null
@@ -59,7 +61,7 @@ const Post = (props) => {
                     </Grid>     
                     <Grid>
                         <div onClick={()=>{history.replace("/detail/"+props.e.id)}} >
-                            <PostImg shape="rectangle" src={props.e.roomImage} />
+                            <PostImg shape="rectangle" src={props.e.roomurl} />
                         </div>
                         
                     </Grid>
@@ -92,7 +94,7 @@ const Post = (props) => {
                         </button>
                     </div>
                     <Grid padding="16px 0 0 0">
-                        <Text size='15px' bold>{props.e.desc}</Text>              
+                        <Text size='15px' bold>{props.e.des}</Text>              
                     </Grid>
                 </div>
             </div>           

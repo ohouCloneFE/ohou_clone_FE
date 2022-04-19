@@ -2,7 +2,7 @@ export default [
     
     {
       id : "0",
-      profile : "https://t1.daumcdn.net/cfile/tistory/255BD13D548B6C161B",
+      profile : "https://t1.daumcdn.net/cfile/tistory/25034C42548B6C2F11",
       roomImage : "https://t1.daumcdn.net/cfile/tistory/117F8F234C5D007D58",
       nickname : "test1",
       desc : "조명을 설치했어요",
@@ -16,15 +16,15 @@ export default [
     },
     {
       id : "2",
-      profile : "https://t1.daumcdn.net/cfile/tistory/255BD13D548B6C161B",
-      roomImage : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlmD5P5tACF2ICpFUEHT3wb1gX3jMXvr3NXGMr9t5xBQKbvUlQq5LU8_eC79FhRQaVOQ8&usqp=CAU",
+      profile : "https://t1.daumcdn.net/cfile/tistory/25034C42548B6C2F11",
+      roomImage : "https://i.pinimg.com/originals/90/4a/3a/904a3a31bb6d3cd14c453f1291fa3c26.jpg",
       nickname : "test1",
       desc : "조명을 설치했어요",
     },
     {
       id : "3",
       profile : "https://t1.daumcdn.net/cfile/blog/265A394454E2F8D011",
-      roomImage : "https://i.pinimg.com/originals/96/29/08/9629082693c2539d9b062b4883fd7a0d.jpg",
+      roomImage : "https://t1.daumcdn.net/cfile/tistory/1232D60E4AF6D93721",
       nickname : "test3",
       desc : "조명을 설치했어요",
     },
@@ -72,8 +72,8 @@ export default [
     },
     {
       id : "10",
-      profile : "https://t1.daumcdn.net/cfile/tistory/244BFB405474100E20",
-      roomImage : "https://usercontents-d.styleshare.io/images/43042651/700x432",
+      profile : "https://t1.daumcdn.net/cfile/tistory/2378A83E548B6C1E1B",
+      roomImage : "https://oneroommaking.com/web/upload/NNEditor/20200416/2_shop1_171536.jpg",
       nickname : "테스트2",
       desc : "조명을 설치했어요",
     },

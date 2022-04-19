@@ -1,18 +1,25 @@
 import React from 'react';
 import { useState } from 'react';
 import styled from 'styled-components';
-
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
 import Post from '../components/Post';
-
+import { actionCreators as postAcions } from "../redux/modules/post";
 import Data from '../components/data'
 
 const PostList = (props) => {
  
+  const dispatch = useDispatch();
   const [filter, setFilter] = useState(["필터","원룸&오피스텔","아파트","빌라&연립"]);
   
-  const [postItem, setPostItem] = useState(Data);
+  // const [postItem, setPostItem] = useState(Data);
 
+  React.useEffect(() => {
+    dispatch(postAcions.getPostDB());
+  }, []);
+
+  const postItem = useSelector((state) => state.post.list);
+  console.log("겟성공하나?",postItem)
 
   return (
     <div>
