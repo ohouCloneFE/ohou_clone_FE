@@ -54,9 +54,9 @@ const Post = (props) => {
                             <Image shape="circle" src={props.e.profile} />
                             <div>
                                 <Text bold size='17px' padding="7px">
-                                    {props.e.username}
+                                    {props.e.nickname}
                                     {
-                                        (user == props.e.username)
+                                        (user == props.e.nickname)
                                         ? <span><Btn style={{backgroundColor:"transparent", border:"none" }} onClick={()=>{history.replace("/postedit/"+props.e.id)}}> · 수정</Btn>
                                           <Btn style={{backgroundColor:"transparent", border:"none"}}>삭제</Btn></span>
                                           :null
