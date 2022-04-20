@@ -7,12 +7,8 @@ import Post from '../components/Post';
 import { actionCreators as postAcions } from "../redux/modules/post";
 import Data from '../components/data'
 
-
-
-
 const PostList = (props) => {
-
-
+ 
   const dispatch = useDispatch();
   const [filter, setFilter] = useState(["필터","원룸&오피스텔","아파트","빌라&연립"]);
   
@@ -93,7 +89,7 @@ const PostList = (props) => {
         <PostListWrap>
             {
               postItem.map((e, idx)=>{
-                // console.log("포스트",postItem)
+                console.log("포스트",postItem)
                 return(
                   <Post key={idx} e={e}/>
                 )
