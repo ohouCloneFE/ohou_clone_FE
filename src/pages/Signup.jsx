@@ -142,7 +142,7 @@ const Singup = (props) => {
               <Button
                   bg = "#35c5f0"
                   width = "360px"
-                  text="로그인"
+                  text="회원가입"
                   color = "white"
                   bold = "900"
                   radius = "5px"
