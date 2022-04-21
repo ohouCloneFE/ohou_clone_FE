@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { detailPostLoadFB } from '../redux/modules/post';
+import { getCommentDB } from '../redux/modules/comment';
 import { __addcomment } from '../redux/modules/comment';
 
 
@@ -46,14 +47,19 @@ const Detail = () => {
     const id = params.id;
 
     const posts = useSelector(state => state.post.list);
-
-    // console.log(posts.body)
+    const list = useSelector(state => state.comment.list);
+    const bodies = posts.body
+    const nick = list
+    console.log("포스트바디",list)
+    console.log("포스트",posts)
+    // console.log("포스트",nick.commentDtoList[0])
 
     const detailPosts = posts.body
 
-    useEffect(() => {
+    useEffect(() => { 
       dispatch(detailPostLoadFB(id));
-    }, []);
+      dispatch(getCommentDB(id))
+    },[]);
 
     // const post = posts.find((p) => p.id === id);
     const postId = Number(id)
@@ -141,7 +147,7 @@ const Detail = () => {
 
       {/* 댓글 */}
 
-      { comment.map ( (data, idx) => { return (
+      { list.map ( (data, idx) => { return (
 
           <div key={idx} style={{padding : "16px",  margin : "10px 0px", height : "45px", paddingBottom : "40px" }}>
           <img 

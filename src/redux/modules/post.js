@@ -41,7 +41,7 @@ export const detailPostLoadFB = (postId) => {
     ,{headers : {"Authorization" : `${myToken}`}},
     )
     .then((res) => {
-      console.log(res.data)
+      console.log("레스데이터란?",res.data.body.commentDtoList)
       dispatch(setDetailPost(res.data));
     })
     .catch((err)=> {
@@ -183,12 +183,12 @@ export const deletePostDB = (postId) => {
 // reducer
 export default handleActions(
     {
-      [SET_DETAILPOST]: (state, action) =>
-      produce(state, (draft) => {
-        console.log(state, action)
-      draft.list = action.payload.post;
-      }),
-      [GET_POST]: (state, action) =>
+        [SET_DETAILPOST]: (state, action) =>
+        produce(state, (draft) => {
+          console.log(state, action)
+          draft.list = action.payload.post;
+        }),
+        [GET_POST]: (state, action) =>
         produce(state, (draft) => {
           // console.log(state);
           // console.log(action);

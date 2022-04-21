@@ -29,12 +29,12 @@ const Post = (props) => {
     const user = getCookie("userId")
     // console.log("유저",user)
     // const [user, setUser] = useState("test3")
-    const [is_like, setIsLike] = useState(true)
+    const [is_like, setIsLike] = useState(false)
     const [is_scrap, setIsScrap] = useState(false)
 
     React.useEffect(() => {
         dispatch(actionCreators.getPostDB());
-      }, []);
+      },[user]);
     
     const delPost = (del) => {
         dispatch(actionCreators.deletePostDB(props.e.id));
@@ -62,7 +62,7 @@ const Post = (props) => {
                                 <Text bold size='17px' padding="7px">
                                     {props.e.nickname}
                                     {
-                                        (user == props.e.nickname)
+                                        (user == props.e.username)
                                         ? <span><Btn style={{backgroundColor:"transparent", border:"none" }} onClick={()=>{history.replace("/postedit/"+props.e.id)}}> · 수정</Btn>
                                           <Btn style={{backgroundColor:"transparent", border:"none"}} onClick={delPost}>삭제</Btn></span>
                                           :null
@@ -78,7 +78,7 @@ const Post = (props) => {
                     {/* <Text>{props.insert_dt}</Text> */}
                     </Grid>     
                     <Grid>
-                        <div onClick={()=>{history.replace("/detail/"+props.e.id)}} >
+                        <div onClick={()=>{history.push("/detail/"+props.e.id)}} >
                             <PostImg shape="rectangle" src={props.e.roomurl} />
                         </div>
                         

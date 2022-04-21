@@ -150,9 +150,9 @@ const Singup = (props) => {
                 />
             </Grid>
             <Grid width = "360px" margin = "auto" padding="8px">
-              <p style={{padding : "0px 62px", width: "360px", display:"flex"}}>
+              <p style={{padding : "0px 50px", width: "360px", display:"flex"}}>
               이미 아이디가 있으신가요?
-              <a style={{marginLeft : "10px", fontWeight: "700"}} onClick={() => {history.push('/login');}}>로그인</a>
+              <a style={{marginLeft : "0px", fontWeight: "500"}} onClick={() => {history.push('/login');}}>로그인</a>
               </p>
             </Grid>
           </Grid>

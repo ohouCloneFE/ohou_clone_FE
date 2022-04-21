@@ -90,7 +90,9 @@ const Login = (props) => {
 
             <Grid margin="30px auto" padding="0px 55px" width= "300px">
                 <Ast>비밀번호 변경하기</Ast>
-                <Ast style={{margin : "0px 0px 0px 20px"}}>회원가입</Ast>
+                <Link to="/signup">
+                  <Ast style={{margin : "0px 0px 0px 5px"}}>회원가입</Ast>
+                </Link>
             </Grid>
 
             <Grid margin="30px auto" padding="0px 20px" width= "300px">

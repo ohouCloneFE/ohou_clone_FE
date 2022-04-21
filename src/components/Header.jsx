@@ -16,7 +16,7 @@ const Header = () => {
   return (
     <div className='header'>
       {/* 오늘의집 글자 아이콘 */}
-      <Link to = "/">
+      <div onClick={()=>{history.push('/')}}>
         <div className='headerName'>
           <svg class="icon" width="74" height="30" viewBox="0 0 74 30" preserveAspectRatio="xMidYMid meet">
             <g fill="none" fill-rule="evenodd">
@@ -30,7 +30,7 @@ const Header = () => {
             </g>
           </svg>
         </div>
-      </Link>
+      </div>
       <div style={{display:"flex"}}>
       <div style={{display:"flex",justifyContent:"flex-end", textAlign:"end", marginRight:"10px"}}>
         {!is_login
