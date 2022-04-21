@@ -16,10 +16,17 @@ const PostList = (props) => {
 
   React.useEffect(() => {
     dispatch(postAcions.getPostDB());
-  }, []);
+  },[]);
+
+
 
   const postItem = useSelector((state) => state.post.list);
   // console.log("겟성공하나?",postItem)
+
+  if(postItem.length === 0){
+    console.log("포스트아이템",postItem.length)
+    return(null)
+  }
 
   return (
     <div>
