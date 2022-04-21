@@ -18,12 +18,12 @@ const initialState = {
 
 // 미들웨어
 
-export const __addcomment = (postId, comments) => {
+export const __addcomment = (postid, comments) => {
   return function (dispatch, getState, {history}) {
     const myToken = getCookie("Authorization",)
-    console.log(postId, comments)
+    console.log(postid, comments)
     axios.post('http://13.209.83.26/comment',{
-      postId : postId,
+      postid : postid,
       comments : comments,
     },
     {headers : {'Authorization' : `${myToken}`}}
