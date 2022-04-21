@@ -10,7 +10,10 @@ import Data from '../components/data'
 const PostList = (props) => {
  
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState(["필터","원룸&오피스텔","아파트","빌라&연립"]);
+  const [filter1, setFilter1] = useState(["평수","10평 미만","10평대","20평대","30평대","40평대","50평 이상"]);
+  const [filter2, setFilter2] = useState(["주거형태","원룸&오피스텔","아파트","빌라&연립","단독주택","사무공간","상업공간","기타"]);
+  const [filter3, setFilter3] = useState(["스타일","모던","북유럽","빈티지","내추럴","프로방스&로맨틱","한국&아시아","유니크"]);
+  const [filter4, setFilter4] = useState(["공간","원룸","거실","침실","주방","욕실","아이방","드레스룸","서재","베란다","사무공간","상업공간","가구&소품","현관","외간&기타"]);
   
   // const [postItem, setPostItem] = useState(Data);
 
@@ -36,7 +39,7 @@ const PostList = (props) => {
       <div style={{marginTop : "15px", marginBottom:"30px"}}>
         <Select>
           {
-            filter.map((e, i)=>{
+            filter1.map((e, i)=>{
               return(
                   <option>
                     {e}
@@ -50,7 +53,7 @@ const PostList = (props) => {
         </Select>
         <Select>
           {
-            filter.map((e, i)=>{
+            filter2.map((e, i)=>{
               return(
                   <option>
                     {e}
@@ -64,7 +67,7 @@ const PostList = (props) => {
         </Select>
         <Select>
           {
-            filter.map((e, i)=>{
+            filter3.map((e, i)=>{
               return(
                   <option>
                     {e}
@@ -78,7 +81,7 @@ const PostList = (props) => {
         </Select>
         <Select>
           {
-            filter.map((e, i)=>{
+            filter4.map((e, i)=>{
               return(
                   <option>
                     {e}
