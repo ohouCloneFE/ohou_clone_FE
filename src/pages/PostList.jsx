@@ -19,7 +19,7 @@ const PostList = (props) => {
   }, []);
 
   const postItem = useSelector((state) => state.post.list);
-  console.log("겟성공하나?",postItem)
+  // console.log("겟성공하나?",postItem)
 
   return (
     <div>
@@ -89,7 +89,7 @@ const PostList = (props) => {
         <PostListWrap>
             {
               postItem.map((e, idx)=>{
-                console.log("포스트",postItem)
+                // console.log("포스트",postItem)
                 return(
                   <Post key={idx} e={e}/>
                 )
