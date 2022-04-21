@@ -3,6 +3,7 @@ import { produce } from "immer";
 import axios from "axios";
 import { getCookie } from "../../shared/Cookie";
 
+
 // action
 const SET_DETAILPOST = "SET_DETAILPOST";
 // detail 페이지 액션
@@ -37,7 +38,8 @@ export const detailPostLoadFB = (postId) => {
     const myToken = getCookie("Authorization",
     )
     await axios.get(`http://13.209.83.26/posts/${postId}`
-    ,{headers : {"Authorization" : `${myToken}`}})
+    ,{headers : {"Authorization" : `${myToken}`}},
+    )
     .then((res) => {
       console.log(res.data)
       dispatch(setDetailPost(res.data));
@@ -153,25 +155,24 @@ const addPostDB = (payload) => {
   };
 };
   
-export const deletePostDB = (post_id) => {
+export const deletePostDB = (postId) => {
+  console.log("postId",postId)
     return function (dispatch, getState, {history}) {
-      if(!post_id) {
+      if(!postId) {
         window.alert("포스트 아이디가 없습니다!")
       }
       const myToken = getCookie("Authorization");
       axios({
         method: "delete",
-        url: `http://13.209.83.26/posts/${post_id}`,
-        data: {
-            post_id: post_id,
-        },
+        url: `http://13.209.83.26/posts/${postId}`,     
+        // postId,
         headers: {
-          Authorization: `Bearer ${myToken}`
+          Authorization: `${myToken}`
         },
       })
       .then((response) => {
         console.log(response);
-        dispatch(deletePost(post_id));
+        dispatch(deletePost(postId));
       })
       .catch((err) => {
         console.log("서버에러: ", err)
@@ -200,9 +201,10 @@ export default handleActions(
           draft.list.unshift(action.payload.post);
         }),
         [DELETE_POST]: (state, action) =>
+        
         produce(state, (draft) => {
-            console.log(action.payload.planId)
-            draft.list.content = draft.list.content.filter((p) =>  p.post_id !== action.payload.post_id);
+            console.log("스테이트 액션",state, action)
+            draft.list = draft.list.filter((p) =>  p.postId !== action.payload.postId);
         }),
         [SET_PREVIEW]: (state, action) =>
         produce(state, (draft) => {
@@ -225,6 +227,7 @@ export default handleActions(
     addPost,
     addPostDB,
     setPreview,
+    deletePostDB,
 
 };
 

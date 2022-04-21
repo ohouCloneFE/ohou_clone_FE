@@ -13,10 +13,12 @@ import { postLoadFB } from '../redux/modules/post';
 
 const Post = (props) => {
     
+    // console.log("프롭스",props)
     const dispatch = useDispatch();
     const post_list = useSelector((state) => state.post.list);
     // const post_list = props
-    console.log("겟성공?",post_list)
+    // console.log("겟성공?",post_list)
+    // console.log("포스트 아이디?",post_list[0].id)
 
     // const { post_list } = props
     // console.log("포스트아이템props",props)
@@ -30,10 +32,14 @@ const Post = (props) => {
     const [is_like, setIsLike] = useState(true)
     const [is_scrap, setIsScrap] = useState(false)
 
-    // React.useEffect(() => {
-    //     dispatch(actionCreators.getPostDB());
-    //   }, []);
+    React.useEffect(() => {
+        dispatch(actionCreators.getPostDB());
+      }, []);
     
+    const delPost = (del) => {
+        dispatch(actionCreators.deletePostDB(props.e.id));
+        // console.log(props.e.id)
+    }
     //     useEffect(() => {
     //     console.log(postLoadFB())
     //     dispatch(postLoadFB());
@@ -58,7 +64,7 @@ const Post = (props) => {
                                     {
                                         (user == props.e.nickname)
                                         ? <span><Btn style={{backgroundColor:"transparent", border:"none" }} onClick={()=>{history.replace("/postedit/"+props.e.id)}}> · 수정</Btn>
-                                          <Btn style={{backgroundColor:"transparent", border:"none"}}>삭제</Btn></span>
+                                          <Btn style={{backgroundColor:"transparent", border:"none"}} onClick={delPost}>삭제</Btn></span>
                                           :null
                                     }                                 
                                 </Text>

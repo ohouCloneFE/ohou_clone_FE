@@ -7,12 +7,8 @@ import Post from '../components/Post';
 import { actionCreators as postAcions } from "../redux/modules/post";
 import Data from '../components/data'
 
-
-
-
 const PostList = (props) => {
-
-
+ 
   const dispatch = useDispatch();
   const [filter, setFilter] = useState(["필터","원룸&오피스텔","아파트","빌라&연립"]);
   
@@ -23,7 +19,7 @@ const PostList = (props) => {
   }, []);
 
   const postItem = useSelector((state) => state.post.list);
-  console.log("겟성공하나?",postItem)
+  // console.log("겟성공하나?",postItem)
 
   return (
     <div>

@@ -9,6 +9,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from 'react';
 import { detailPostLoadFB } from '../redux/modules/post';
+import { __addcomment } from '../redux/modules/comment';
 
 
 const Detail = () => {
@@ -46,7 +47,7 @@ const Detail = () => {
 
     const posts = useSelector(state => state.post.list);
 
-    console.log(posts.body)
+    // console.log(posts.body)
 
     const detailPosts = posts.body
 
@@ -55,7 +56,12 @@ const Detail = () => {
     }, []);
 
     // const post = posts.find((p) => p.id === id);
-    // console.log(post)
+    const postId = Number(id)
+
+    const commentAdd = () => {
+      dispatch(__addcomment(postId, comments));
+      // window.location.reload()
+    }
 
   return (
   <React.Fragment>
@@ -71,7 +77,7 @@ const Detail = () => {
           </img>
 
           <div >
-            <p style={{lineHeight : "30px", margin : "0px 0px 0px 60px", fontSize: "20px"}}>{detailPosts?.username}</p>
+            <p style={{lineHeight : "30px", margin : "0px 0px 0px 60px", fontSize: "20px"}}>{detailPosts?.nickname}</p>
             <p style={{lineHeight : "20px", margin : "0px 0px 0px 60px", fontSize: "12px"}}>2일 전</p>
           </div>
 
@@ -129,7 +135,7 @@ const Detail = () => {
         
         <input type="text" placeholder='칭찬과 격려의 댓글은 작성자에게 큰 힘이 됩니다 :)' className='detailInput' onChange={(e) => {setComments(e.target.value)}} />
 
-        <button className='detailBtn' onClick={() => {console.log("가나다라")}}>등록</button>
+        <button className='detailBtn' onClick={commentAdd}>등록</button>
 
       </DetailDiv> 
 
